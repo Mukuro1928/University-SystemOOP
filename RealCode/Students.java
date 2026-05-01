@@ -3,11 +3,13 @@ public class Student {
     private int studentID;
     private String studentName;
     private String email;
+    private Course enrolledCourse;
  
     public Student(int studentID, String studentName, String email) {
-        this.studentID   = studentID;
+        this.studentID = studentID;
         this.studentName = studentName;
-        this.email       = email;
+        this.email = email;
+        this.enrolledCourse = null;
     }
 
  
@@ -45,13 +47,29 @@ public class Student {
     }
  
 
-    public void payDues(MembershipPayment payment) {
-        payment.processPayment();
-        System.out.println(studentName + " (ID: " + studentID + ")"
-                + " has paid dues of RM" + payment.getAmount()
-                + " for membership: " + payment.getMembershipType());
+    public void enrollCourse(Course course) {
+        this.enrolledCourse = course;
+        course.enrollStudent(this.studentName);
     }
- 
+
+    public void dropCourse() {
+        if (enrolledCourse != null) {
+            enrolledCourse.dropStudent(this.studentName);
+            this.enrolledCourse = null;
+        } else {
+            System.out.println(studentName + " is not enrolled in any course.");
+        }
+    }
+
+    public void displayEnrolledCourse() {
+        System.out.println("\n--- Enrolled Course for " + studentName
+        + " (ID: " + studentID + ") ---");
+        if (enrolledCourse != null) {
+            enrolledCourse.displayCourseInfo(); 
+        } else {
+            System.out.println("No course enrolled.");
+        }
+    }
  
     public void displayStudentInfo() {
         System.out.println("================================");
