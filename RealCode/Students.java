@@ -1,18 +1,15 @@
 public class Student {
- 
-    // Attributes (as per UML)
+
     private int studentID;
     private String studentName;
     private String email;
  
-    // Constructor
     public Student(int studentID, String studentName, String email) {
         this.studentID   = studentID;
         this.studentName = studentName;
         this.email       = email;
     }
- 
-    // ── Getters & Setters ──────────────────────────────────────────────────────
+
  
     public int getStudentID() {
         return studentID;
@@ -38,12 +35,7 @@ public class Student {
         this.email = email;
     }
  
-    // ── Methods (as per UML) ───────────────────────────────────────────────────
- 
-    /**
-     * Register this student for a club event.
-     * Relates to the Event class (which extends Club).
-     */
+
     public void registerForEvent(Event event) {
         event.attendeeCount++;
         System.out.println(studentName + " (ID: " + studentID + ")"
@@ -52,10 +44,7 @@ public class Student {
                 + " at " + event.eventLocation);
     }
  
-    /**
-     * Process a membership payment for this student.
-     * Relates to the MembershipPayment class.
-     */
+
     public void payDues(MembershipPayment payment) {
         payment.processPayment();
         System.out.println(studentName + " (ID: " + studentID + ")"
@@ -63,7 +52,6 @@ public class Student {
                 + " for membership: " + payment.getMembershipType());
     }
  
-    // ── Display ────────────────────────────────────────────────────────────────
  
     public void displayStudentInfo() {
         System.out.println("================================");
