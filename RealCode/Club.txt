@@ -67,15 +67,14 @@ public class Club
     }
 
     
-    public void displayEvent() 
+    public void createEvent(String name, String date, String location) 
     {
-        if (eventName != null) 
-        {
-            System.out.println(eventName + " at " + eventLocation + " on " + eventDate);
-        } 
-         else
-            System.out.println("No event available");
+        this.eventName = name;
+        this.eventDate = date;
+        this.eventLocation = location;
+
         
+        System.out.println(eventName + " at " + eventLocation + " on " + eventDate);
     }
 
     
