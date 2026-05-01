@@ -2,7 +2,7 @@ public class Club {
 
     private String clubName;
     private String presidentName;
-    private String event; // now just text
+    private String event; 
 
     
     public Club(String clubName, String presidentName) {
