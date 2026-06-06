@@ -1,27 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package sem1.oop;
-
-/**
- *
- * @author LOQ
- */
 public class Course 
 {
     private String courseName;
     private String courseCode;
     private int credit;
     private String instructor;
-    
-    public Course()
-    {
-        this.courseName = courseName;
-        this.courseCode = courseCode;
-        this.credit = credit;
-        this.instructor = instructor;
-    }
     
     public Course(String courseName, String courseCode, int credit, String instructor)
     {
@@ -78,9 +60,9 @@ public class Course
     
     public void displayCourseInfo()
     {
-        System.out.println("================================");
         System.out.println("Course Name: " + this.courseName);
-        System.out.println("Coure Code: " + this.courseCode);
+        System.out.println("Course Code: " + this.courseCode);
+        System.out.println("Course Credit: " + this.credit);
         System.out.println("Instructor: " + this.instructor);
         System.out.println("================================");
     }
@@ -94,5 +76,4 @@ public class Course
     {
         System.out.println(student + " has been dropped from [" + this.courseCode + "]" + this.courseName);
     }
-
 }
