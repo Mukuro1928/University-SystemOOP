@@ -1,51 +1,34 @@
-public class Student 
-{
+public class Student extends Person {
     private int studentID;
-    private String studentName;
-    private String email;
     private Course enrolledCourse;
-    
-    public Student() 
-    {
-    }
- 
-    public Student(int studentID, String studentName, String email, Course enrolledCourse) {
+
+    public Student(int studentID, String name, String email, Course enrolledCourse) {
+        super(name, email);
         this.studentID = studentID;
-        this.studentName = studentName;
-        this.email = email;
         this.enrolledCourse = enrolledCourse;
     }
 
- 
     public int getStudentID() {
         return studentID;
     }
- 
+
     public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
- 
-    public String getStudentName() {
-        return studentName;
+
+    public Course getEnrolledCourse() {
+        return enrolledCourse;
     }
- 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+
+    public void setEnrolledCourse(Course enrolledCourse) {
+        this.enrolledCourse = enrolledCourse;
     }
- 
-    public String getEmail() {
-        return email;
-    }
- 
-    public void setEmail(String email) {
-        this.email = email;
-    }
- 
+
     public void displayStudentInfo() {
         System.out.println("================================");
         System.out.println("Student ID   : " + studentID);
-        System.out.println("Student Name : " + studentName);
-        System.out.println("Email        : " + email);
+        System.out.println("Student Name : " + getName());
+        System.out.println("Email        : " + getEmail());
         if (enrolledCourse != null) {
             System.out.println("Enrolled Course: " + enrolledCourse.getCourseName());
         } else {
@@ -53,5 +36,4 @@ public class Student
         }
         System.out.println("================================");
     }
- 
 }

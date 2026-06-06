@@ -1,14 +1,13 @@
 public class University {
     private String uniName;
     private String location;
-    private Club club; // Single reference instead of a list
+    private Club club;
 
     public University(String uniName, String location) {
         this.uniName = uniName;
         this.location = location;
     }
 
-    // Aggregation: The Club is created outside and passed in
     public void setClub(Club club) {
         this.club = club;
     }
