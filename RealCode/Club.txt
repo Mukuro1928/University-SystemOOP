@@ -1,20 +1,14 @@
-public class Club 
+ublic class Club
 {
-
-    public String clubName;
-    public String presidentName;
-
-    public String eventName;
-    public String eventDate;
-    public String eventLocation;
-
+    private String clubName;
+    private String presidentName;
+    private Event event;
     
     public Club(String clubName, String presidentName) 
     {
         this.clubName = clubName;
         this.presidentName = presidentName;
     }
-
     
     public String getClubName() 
     {
@@ -35,51 +29,26 @@ public class Club
     {
         this.presidentName = presidentName;
     }
-
-    public String getEventName() 
-    {
-        return eventName;
-    }
-
-    public void setEventName(String eventName) 
-    {
-        this.eventName = eventName;
-    }
-
-    public String getEventDate() 
-    {
-        return eventDate;
-    }
-
-    public void setEventDate(String eventDate) 
-    {
-        this.eventDate = eventDate;
-    }
-
-    public String getEventLocation() 
-    {
-        return eventLocation;
-    }
-
-    public void setEventLocation(String eventLocation) 
-    {
-        this.eventLocation = eventLocation;
-    }
-
     
-    public void createEvent(String name, String date, String location) 
+    public void createEvent(String name, String date, String location, int count) 
     {
-        this.eventName = name;
-        this.eventDate = date;
-        this.eventLocation = location;
-
-        
-        System.out.println(eventName + " at " + eventLocation + " on " + eventDate);
+        event = new Event(name, date, location, count);
+    }
+    
+    public Event getEvent()
+    {
+        return event;
     }
 
-    
-    public void removeClub() 
-    {
-        System.out.println("Club " + clubName + " removed.");
+    public void showClubDetails() {
+        System.out.println("Club: " + clubName);
+        System.out.println("President: " + presidentName);
+
+        if (event != null) {
+            event.getEventDetails();
+        } else {
+            System.out.println("No event yet.");
+        }
     }
 }
+
