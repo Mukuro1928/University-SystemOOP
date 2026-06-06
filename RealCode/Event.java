@@ -1,16 +1,11 @@
-package uniclubmansys;
-
-public class Event extends Club {
+public class Event{
     public String eventName;
     public String eventDate;
     public String eventLocation;
     public int attendeeCount;
 
-    public Event() {
-        // Default constructor
-    }
-
-    public Event(String eventName, String eventDate, String eventLocation, int attendeeCount) {
+    public Event(String eventName, String eventDate, String eventLocation, int attendeeCount){
+        
         this.eventName = eventName;
         this.eventDate = eventDate;
         this.eventLocation = eventLocation;
