@@ -9,6 +9,28 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 
+/**
+ * Developed by: Mukhlis
+ * ClubWorkspace.java — Club & Event Management Panel
+ * ==================================================
+ * Provides a graphical interface for managing university clubs
+ * and their associated events.
+ *
+ * Features:
+ *  • Register new clubs and club presidents.
+ *  • Create optional event information for each club.
+ *  • Display all clubs in a TableView.
+ *  • Delete existing clubs.
+ *  • Synchronize data with DataManager and persist changes
+ *    through FileHandler.
+ *
+ * Architecture:
+ *  • Uses ObservableList for automatic TableView updates.
+ *  • Retrieves and modifies data through the DataManager singleton.
+ *  • Supports form auto-population when a table row is selected.
+ *  • Validates user input and displays errors using JavaFX Alerts.
+ */
+
 public class ClubWorkspace {
 
     private final ObservableList<ClubRow> tableModel = FXCollections.observableArrayList();
