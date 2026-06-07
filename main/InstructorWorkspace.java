@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 
 /**
- * Developed by Nuzil
+ * Developed by AMIR NUZIL IRFAN BIN AMIR ZAHARIMAN 2512533
  * InstructorWorkspace.java — Instructor Management Panel
  * ======================================================
  * Provides a graphical interface for managing instructor records.
