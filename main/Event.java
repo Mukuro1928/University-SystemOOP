@@ -1,4 +1,5 @@
 /** 
+ * Developed By MUHAMMAD A’THIF UZAIR BIN SHAEDIN 2514847 
  * Event.java — Event Entity Class
  * ===============================
  * Represents an event organized by a club within the
