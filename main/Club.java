@@ -1,4 +1,5 @@
 /**
+ * Developed By AHMAD ZUHDI BIN MOHD SOUD 2512839 
  * Club.java — Club Entity Class
  * =============================
  * Represents a student club within the University Management System.
