@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 
 /**
- * Developed by: Zuhdi
+ * Developed by: AHMAD ZUHDI BIN MOHD SOUD 2512839 
  * CourseWorkspace.java — Course Management Panel
  * ==============================================
  * Provides a CRUD-style interface for managing academic courses.
