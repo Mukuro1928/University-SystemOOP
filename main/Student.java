@@ -1,3 +1,28 @@
+/**
+ * Student.java — Student Entity
+ * =============================
+ * Represents a student in the system and extends the Person class.
+ *
+ * Features:
+ * • Stores student-specific data such as student ID.
+ * • Maintains an association with a Course object (enrolled course).
+ * • Provides getter and setter methods for all attributes.
+ * • Includes a method to display formatted student information.
+ *
+ * Architecture:
+ * • Child class of Person, reusing shared attributes like name and email.
+ * • Demonstrates object association through the enrolledCourse reference.
+ * • Acts as a data model used by higher-level system components.
+ *
+ * Behavior:
+ * • Safely checks for null enrolledCourse before displaying course details.
+ *
+ * Note:
+ * • This class focuses on data representation and simple console output only.
+ * • No persistence, validation, or business logic is handled here.
+ */
+
+
 public class Student extends Person {
     private int studentID;
     private Course enrolledCourse;
