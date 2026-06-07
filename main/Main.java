@@ -1,5 +1,20 @@
 import java.util.Scanner;
 
+/**
+ * Developed by:
+ * 1. AHMAD MUKHLIS BIN ZAKARIAH - 2514371
+ * 2. IQMAL HAKIMI BIN SUHAIMI - 2511737
+ * Main entry point for the initial CLI (Command Line Interface) version 
+ * of the IIUM University Management System.
+ * * Responsibilities:
+ * - Serves as the legacy text-based prototype prior to the JavaFX migration.
+ * - Coordinates sequential registration workflows for Courses, Students, and Clubs.
+ * - Interactively collects user input via {@code Scanner} to build fixed-size data arrays.
+ * - Performs basic relational mapping by linking student enrollments to parsed course codes.
+ * - Handles simple persistence operations by calling {@code FileHandler} methods 
+ * immediately at application startup and shutdown.
+ */
+
 public class Main {
     private static Course[] courses = null;
     private static final Scanner input = new Scanner(System.in);
