@@ -14,21 +14,6 @@ An interactive, graphical desktop application built with **JavaFX** that provide
 
 ---
 
-## 👥 Team Members & Role Allocation
-
-The codebase is built collaboratively with explicit separation of concerns mapped across our 6-member project team:
-
-| Member Name | Core Responsibility | Technical Implementation Focus |
-| :--- | :--- | :--- |
-| **Ahmad Mukhlis bin Zakariah** | Project Manager & Git Admin | Repository workflows, merge management, and User Authentication layout/logic. |
-| **Ahmad Zuhdi bin Mohd Soud** | Lead GUI Architect | Core JavaFX structural layout skeleton (`Stage`, sidebar navigation, responsive containers). |
-| **Muhammad A'thif Uzair bin Shaedin** | Backend Developer 1 | OOP Inheritance Class Hierarchy design (`Person`, `Student`, `Instructor`) and encapsulation optimization. |
-| **Amir Nuzil Irfan bin Amir Zahariman** | Backend Developer 2 | Dynamic core database setup (`DataManager` Singleton), input verification rules, and relational search engines. |
-| **Iqmal Hakimi bin Suhaimi** | Feature Developer 1 | UI workspace and backend CRUD wiring for Course & Club/Event operations. |
-| **Muhammad Aiman bin Sufian** | Feature Developer 2 & File Handler | UI workspace for Student management and local flat text file I/O pipelines. |
-
----
-
 ## 🏗️ Object-Oriented Programming (OOP) Architecture
 
 To maximize code reusability and maintain strong separation of concerns, the program strictly incorporates standard OOP design patterns:
