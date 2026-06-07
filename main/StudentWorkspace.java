@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 
 /**
- * Developed by: Aiman
+ * Developed by: MUHAMMAD AIMAN BIN SUFIAN 2511349
  * StudentWorkspace.java — Student Management Panel
  * ================================================
  * Provides a complete CRUD (Create, Read, Update, Delete) interface
