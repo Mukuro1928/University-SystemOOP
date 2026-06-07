@@ -121,8 +121,8 @@ public class DataManager {
 
     public boolean deleteClub(String clubName) {
         if (findClubByName(clubName) == null) throw new IllegalArgumentException("Club does not exist.");
-        if (findClubByName(clubName).getMembers().size() > 0) throw new IllegalStateException("Cannot delete a club with members. Please remove members first.");
-        if (findClubByName(clubName).isBlank()) throw new IllegalStateException("Cannot delete a club with blank name.");
+        if (findClubByName(clubName).hasEvents()) throw new IllegalStateException("Cannot delete club with existing events. Please remove events first.");
+        
         return clubList.removeIf(c -> c.getClubName().equalsIgnoreCase(clubName));
     }
 
