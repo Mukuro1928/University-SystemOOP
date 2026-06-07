@@ -9,6 +9,30 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 
+/**
+ * Developed by: Zuhdi
+ * CourseWorkspace.java — Course Management Panel
+ * ==============================================
+ * Provides a CRUD-style interface for managing academic courses.
+ *
+ * Features:
+ *  • Add new courses with code, name, credits, and instructor.
+ *  • View registered courses in a TableView.
+ *  • Delete existing courses.
+ *  • Automatically refresh displayed data after changes.
+ *  • Persist updates using FileHandler.
+ *
+ * Architecture:
+ *  • Uses ObservableList to bind course data to the TableView.
+ *  • Communicates with the DataManager singleton for data operations.
+ *  • Populates form fields when a course is selected.
+ *  • Performs input validation and displays user-friendly error messages.
+ *
+ * Note:
+ *  • Direct course editing is not currently supported because
+ *    DataManager does not provide an editCourse() method.
+ */
+
 public class CourseWorkspace {
 
     private final ObservableList<CourseRow> tableModel = FXCollections.observableArrayList();
