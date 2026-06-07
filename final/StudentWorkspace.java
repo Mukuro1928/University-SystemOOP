@@ -191,7 +191,7 @@ public class StudentWorkspace {
 
         table = new TableView<>(tableModel);
         table.getColumns().addAll(idCol, nameCol, emailCol, courseCol);
-        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         table.setPlaceholder(new Label("No students registered yet."));
         table.setPrefHeight(420);
         table.setStyle("-fx-font-size: 12px;");
@@ -203,32 +203,32 @@ public class StudentWorkspace {
             }
         );
 
-        // Alternating row colors via row factory
-        table.setRowFactory(tv -> {
-            TableRow<StudentRow> row = new TableRow<>();
-            row.itemProperty().addListener((obs, oldItem, item) -> {
-                if (item == null) {
-                    row.setStyle("");
-                } else {
-                    int idx = row.getIndex();
-                    row.setStyle(idx % 2 == 0
-                        ? "-fx-background-color: #f8faff;"
-                        : "-fx-background-color: #ffffff;");
-                }
-            });
-            row.setOnMouseEntered(e -> {
-                if (!row.isEmpty()) row.setStyle("-fx-background-color: #e8f0fe;");
-            });
-            row.setOnMouseExited(e -> {
-                if (!row.isEmpty()) {
-                    int idx = row.getIndex();
-                    row.setStyle(idx % 2 == 0
-                        ? "-fx-background-color: #f8faff;"
-                        : "-fx-background-color: #ffffff;");
-                }
-            });
-            return row;
-        });
+//        // Alternating row colors via row factory
+//        table.setRowFactory(tv -> {
+//            TableRow<StudentRow> row = new TableRow<>();
+//            row.itemProperty().addListener((obs, oldItem, item) -> {
+//                if (item == null) {
+//                    row.setStyle("");
+//                } else {
+//                    int idx = row.getIndex();
+//                    row.setStyle(idx % 2 == 0
+//                        ? "-fx-background-color: #f8faff;"
+//                        : "-fx-background-color: #ffffff;");
+//                }
+//            });
+//            row.setOnMouseEntered(e -> {
+//                if (!row.isEmpty()) row.setStyle("-fx-background-color: #e8f0fe;");
+//            });
+//            row.setOnMouseExited(e -> {
+//                if (!row.isEmpty()) {
+//                    int idx = row.getIndex();
+//                    row.setStyle(idx % 2 == 0
+//                        ? "-fx-background-color: #f8faff;"
+//                        : "-fx-background-color: #ffffff;");
+//                }
+//            });
+//            return row;
+//        });
 
         VBox.setVgrow(table, Priority.ALWAYS);
         section.getChildren().addAll(sectionTitle, table);
@@ -446,6 +446,8 @@ public class StudentWorkspace {
     /** Clears all input fields and hides the status label. */
     private void clearForm() {
         idField.clear();
+        idField.setEditable(true);
+        idField.setStyle(idField.getStyle() + "-fx-opacity:1;-fx-cursor:allowed;");
         nameField.clear();
         emailField.clear();
         courseCodeField.clear();
@@ -456,6 +458,8 @@ public class StudentWorkspace {
     /** Populates the form fields from a selected table row. */
     private void populateFormFromRow(StudentRow row) {
         idField.setText(String.valueOf(row.getStudentID()));
+        idField.setEditable(false);
+        idField.setStyle(idField.getStyle() + "-fx-opacity:0.7;-fx-cursor:not-allowed;");
         nameField.setText(row.getName());
         emailField.setText(row.getEmail());
         courseCodeField.setText(row.getEnrolledCourseCode());
