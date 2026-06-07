@@ -1,4 +1,5 @@
 /**
+ * Developed by: MUHAMMAD AIMAN BIN SUFIAN 2511349
  * Student.java — Student Entity
  * =============================
  * Represents a student in the system and extends the Person class.
