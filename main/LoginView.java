@@ -7,6 +7,18 @@ import javafx.scene.text.*;
 import java.util.function.Consumer;
 import javafx.scene.Node;
 
+/**
+ * Developed by: MUHAMMAD A'THIF UZAIR BIN SHAEDIN - 2514847
+ * UI View component representing the Authentication Screen for the system.
+ * * Responsibilities:
+ * - Constructs a pure-Java JavaFX user interface without external FXML layouts.
+ * - Establishes an institutional branding sidebar paired with a modern login card layout.
+ * - Handles inline user credential validation against a temporary in-memory lookup table.
+ * - Exposes interactive component focus styling, input error states, and enter-key keypress triggers.
+ * - Leverages a functional {@code Consumer<String>} callback to securely delegate post-login 
+ * dashboard navigation back to the primary application orchestrator.
+ */
+
 public class LoginView {
     private static final String[][] VALID_CREDENTIALS = {
         { "admin",   "admin123"  },
