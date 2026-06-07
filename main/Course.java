@@ -1,3 +1,26 @@
+/**
+ * Course.java — Course Data Model
+ * ===============================
+ * Represents a single academic course entity used in the system.
+ *
+ * Features:
+ * • Stores course details including name, code, credit hours, and instructor.
+ * • Provides getter and setter methods for all attributes.
+ * • Supports updating course information dynamically via setters.
+ * • Includes a utility method to display formatted course details in the console.
+ *
+ * Architecture:
+ * • Acts as a plain data model (POJO) used by higher-level components such as
+ * CourseWorkspace and DataManager.
+ * • Does not handle file storage, UI logic, or business operations directly.
+ * • Designed for simple data encapsulation and transfer between system layers.
+ *
+ * Note:
+ * • This class focuses purely on data representation and does not include validation
+ * or persistence logic.
+ */
+
+
 public class Course 
 {
     private String courseName;
