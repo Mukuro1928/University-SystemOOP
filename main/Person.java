@@ -1,4 +1,5 @@
 /**
+ * Developed by: MUHAMMAD AIMAN BIN SUFIAN 2511349
  * Person.java — Abstract Base Class
  * =================================
  * Serves as a base class for all person-related entities in the system.
