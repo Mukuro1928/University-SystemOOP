@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 
 /**
- * Developed by: Mukhlis
+ * Developed by: AHMAD MUKHLIS BIN ZAKARIAH 2514371
  * ClubWorkspace.java — Club & Event Management Panel
  * ==================================================
  * Provides a graphical interface for managing university clubs
