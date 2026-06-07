@@ -1,4 +1,5 @@
 /**
+ * Developed by: AHMAD ZUHDI BIN MOHD SOUD 2512839 
  * Course.java — Course Data Model
  * ===============================
  * Represents a single academic course entity used in the system.
