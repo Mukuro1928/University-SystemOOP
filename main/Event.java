@@ -1,3 +1,33 @@
+/** 
+ * Event.java — Event Entity Class
+ * ===============================
+ * Represents an event organized by a club within the
+ * University Management System.
+ *
+ * Responsibilities:
+ *  • Store event information including name, date,
+ *    location, and attendee count.
+ *  • Provide methods to create, update, and retrieve
+ *    event details.
+ *  • Support club event management operations.
+ *
+ * Features:
+ *  • Event name management.
+ *  • Event date and location tracking.
+ *  • Attendee count recording.
+ *  • Bulk event detail updates through a single method.
+ *
+ * Architecture:
+ *  • Serves as a domain model (entity) class.
+ *  • Encapsulates event-related data using private fields
+ *    and public getter/setter methods.
+ *  • Associated with the Club class to represent club events.
+ *
+ * Design:
+ *  • Functions as a lightweight data container that stores
+ *    and manages event information throughout the system.
+ */
+
 public class Event {
     private String eventName;
     private String eventDate;
