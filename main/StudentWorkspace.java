@@ -9,6 +9,33 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 
+/**
+ * Developed by: Aiman
+ * StudentWorkspace.java — Student Management Panel
+ * ================================================
+ * Provides a complete CRUD (Create, Read, Update, Delete) interface
+ * for managing student records within the University Management System.
+ *
+ * Features:
+ *  • Add, update, and delete student records.
+ *  • Display registered students in a TableView.
+ *  • Assign students to courses using course codes.
+ *  • Auto-populate form fields when a table row is selected.
+ *  • Persist data changes through FileHandler.
+ *
+ * Architecture:
+ *  • Uses ObservableList for automatic UI synchronization.
+ *  • Delegates all data operations to the DataManager singleton.
+ *  • Employs JavaFX Property wrappers for TableView binding.
+ *  • Provides input validation and user-friendly error handling
+ *    through JavaFX Alert dialogs.
+ *
+ * Design:
+ *  • Serves as the reference implementation for other workspace
+ *    modules such as InstructorWorkspace, CourseWorkspace,
+ *    and ClubWorkspace.
+ */
+
 public class StudentWorkspace {
     private final ObservableList<StudentRow> tableModel = FXCollections.observableArrayList();
 
