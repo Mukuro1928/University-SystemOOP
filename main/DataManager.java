@@ -1,5 +1,42 @@
 import java.util.ArrayList;
 
+/**
+ * Developed by: Athif
+ * DataManager.java — Central Data Management Module
+ * =================================================
+ * Serves as the central repository and controller for all system data
+ * within the University Management System.
+ *
+ * Responsibilities:
+ *  • Store and manage collections of Students, Instructors,
+ *    Courses, and Clubs.
+ *  • Perform CRUD-related operations on system records.
+ *  • Validate input data before creating or modifying records.
+ *  • Maintain relationships between entities such as
+ *    student-course enrollment and club-event associations.
+ *  • Provide search and lookup functionality for all entities.
+ *
+ * Architecture:
+ *  • Implements the Singleton design pattern to ensure a single
+ *    shared data source throughout the application.
+ *  • Uses ArrayLists as the primary in-memory data storage.
+ *  • Acts as the intermediary between the user interface
+ *    workspaces and the system's domain objects.
+ *
+ * Features:
+ *  • Student Management (Add, Edit, Delete, Search)
+ *  • Instructor Management (Add, Edit, Delete, Search)
+ *  • Course Management (Add, Delete, Search)
+ *  • Club and Event Management (Add, Delete, Search)
+ *  • Automatic handling of entity relationships when records
+ *    are modified or removed.
+ *
+ * Design:
+ *  • Functions as the application's business logic layer,
+ *    ensuring data consistency and centralized control over
+ *    all university management operations.
+ */
+
 public class DataManager {
     private static ArrayList<Student> studentList       = new ArrayList<>();
     private static ArrayList<Instructor> instructorList = new ArrayList<>();
