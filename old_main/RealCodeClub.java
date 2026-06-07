@@ -1,4 +1,4 @@
-ublic class Club
+public class Club
 {
     private String clubName;
     private String presidentName;
