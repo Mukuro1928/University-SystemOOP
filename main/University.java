@@ -1,3 +1,27 @@
+/**
+ * University.java — University Entity
+ * ===================================
+ * Represents a university and its associated details within the system.
+ *
+ * Features:
+ * • Stores university name and location.
+ * • Maintains an optional association with a Club object.
+ * • Provides a setter method to link a club to the university.
+ * • Displays formatted university information via a display method.
+ *
+ * Architecture:
+ * • Acts as a data model representing a higher-level aggregation entity.
+ * • Demonstrates object association through the Club reference.
+ * • Interacts with other domain objects such as Club in the system.
+ *
+ * Behavior:
+ * • Safely checks for null before displaying associated club information.
+ *
+ * Note:
+ * • This class is focused on simple data representation and output.
+ * • Does not include persistence, validation, or business logic.
+ */
+
 public class University {
     private String uniName;
     private String location;
