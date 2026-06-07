@@ -1,4 +1,5 @@
 /**
+ * Developed by AMIR NUZIL IRFAN BIN AMIR ZAHARIMAN 2512533
  * University.java — University Entity
  * ===================================
  * Represents a university and its associated details within the system.
