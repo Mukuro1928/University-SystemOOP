@@ -2,6 +2,17 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Developed by: MUHAMMAD A'THIF UZAIR BIN SHAEDIN - 2514847
+ * Main entry point for the IIUM University Management System JavaFX application.
+ * * Responsibilities:
+ * - Initializes the primary stage window properties and handles scene transitions.
+ * - Manages application routing (Login View and Dashboard View navigation).
+ * - Loads existing application data via {@code FileHandler} on startup.
+ * - Seeds initial sample demo data (Courses, Instructors, Students, and Clubs) 
+ * into the {@code DataManager} if no previous data records are detected.
+ */
+
 public class App extends Application {
     private Stage primaryStage;
     @Override
