@@ -9,6 +9,29 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 
+/**
+ * InstructorWorkspace.java — Instructor Management Panel
+ * ======================================================
+ * Provides a graphical interface for managing instructor records.
+ *
+ * Features:
+ *  • Add new instructors.
+ *  • Update existing instructor information.
+ *  • Delete instructor records.
+ *  • Display instructor data in a TableView.
+ *  • Save all modifications through FileHandler.
+ *
+ * Architecture:
+ *  • Uses ObservableList for automatic UI synchronization.
+ *  • Delegates CRUD operations to the DataManager singleton.
+ *  • Supports row selection for form auto-population.
+ *  • Handles validation errors through JavaFX Alert dialogs.
+ *
+ * Design:
+ *  • Follows the same workspace pattern used by StudentWorkspace
+ *    to ensure consistent behavior and user experience.
+ */
+
 public class InstructorWorkspace {
 
     private final ObservableList<InstructorRow> tableModel = FXCollections.observableArrayList();
