@@ -1,3 +1,34 @@
+/**
+ * DashboardView.java — Main University Management Dashboard (JavaFX)
+ * ===================================================================
+ * Provides the main UI shell and navigation system for the application.
+ *
+ * Features:
+ * • Sidebar navigation for Dashboard, Students, Instructors, Courses, and Clubs.
+ * • Dynamic workspace loading using a Supplier-based registry system.
+ * • Top bar with breadcrumb navigation, user info, and logout confirmation.
+ * • Overview dashboard showing real-time system statistics from DataManager.
+ * • Modular design where each feature module is loaded independently.
+ * • Interactive UI styling with hover, active state, and transitions.
+ *
+ * Architecture:
+ * • Built using JavaFX BorderPane layout (Sidebar | TopBar | Center Workspace).
+ * • Uses NavItem enum to define navigation structure in a centralized way.
+ * • Workspace registry maps string keys to lazily created UI components.
+ * • Integrates with DataManager singleton for centralized data access.
+ * • Each module (StudentWorkspace, CourseWorkspace, etc.) is decoupled and injected dynamically.
+ *
+ * Behavior:
+ * • Clicking navigation buttons swaps the center workspace dynamically.
+ * • Maintains active navigation state and updates breadcrumb label.
+ * • Logout triggers external callback via Runnable confirmation flow.
+ *
+ * Note:
+ * • This class only manages UI structure and navigation flow.
+ * • All CRUD operations are handled in individual workspace classes.
+ */
+
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
