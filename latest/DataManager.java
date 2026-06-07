@@ -1,14 +1,15 @@
 import java.util.ArrayList;
 
-public class DataManager {
-
+public class DataManager
+{
     // ================================================================== //
     // 1. Dynamic ArrayList Collections (Replaces Old Fixed Arrays)
     // ================================================================== //
-    private ArrayList<Student> studentList       = new ArrayList<>();
-    private ArrayList<Instructor> instructorList = new ArrayList<>();
-    private ArrayList<Course> courseList         = new ArrayList<>();
-    private ArrayList<Club> clubList             = new ArrayList<>();
+    private static ArrayList<Student> studentList       = new ArrayList<>();
+    private static ArrayList<Instructor> instructorList = new ArrayList<>();
+    private static ArrayList<Course> courseList         = new ArrayList<>();
+    private static ArrayList<Club> clubList             = new ArrayList<>();
+    private static ArrayList<Event> eventList           = new ArrayList<>();
 
     private static DataManager instance;
 
@@ -24,10 +25,11 @@ public class DataManager {
     // ================================================================== //
     // 2. Accessor Getters (Used by JavaFX TableViews)
     // ================================================================== //
-    public ArrayList<Student> getStudentList()       { return studentList; }
-    public ArrayList<Instructor> getInstructorList() { return instructorList; }
-    public ArrayList<Course> getCourseList()         { return courseList; }
-    public ArrayList<Club> getClubList()             { return clubList; }
+    public static ArrayList<Student> getStudentList()       { return studentList; }
+    public static ArrayList<Instructor> getInstructorList() { return instructorList; }
+    public static ArrayList<Course> getCourseList()         { return courseList; }
+    public static ArrayList<Club> getClubList()             { return clubList; }
+    public static ArrayList<Event> getEventList()           { return eventList; }
 
     // ================================================================== //
     // 3. STUDENT CRUD Operations (Using Inherited Person Properties)
@@ -85,7 +87,7 @@ public class DataManager {
     }
 
     // ================================================================== //
-    // 5. COURSE & CLUB CRUD Operations
+    // 5. COURSE & CLUB & EVENT CRUD Operations
     // ================================================================== //
 
     public void addCourse(String name, String code, int credit, String instructorName) {
@@ -121,9 +123,15 @@ public class DataManager {
 
     public boolean deleteClub(String clubName) {
         if (findClubByName(clubName) == null) throw new IllegalArgumentException("Club does not exist.");
-        if (findClubByName(clubName).hasEvents()) throw new IllegalStateException("Cannot delete club with existing events. Please remove events first.");
         
         return clubList.removeIf(c -> c.getClubName().equalsIgnoreCase(clubName));
+    }
+    
+    public void addEvent(String eventName, String eventDate, String eventLocation, int attendeeCount) {
+        if (eventName == null || eventName.isBlank()) throw new IllegalArgumentException("Event name cannot be empty.");
+        if (findEventByName(eventName) != null) throw new IllegalArgumentException("Event name already exists.");
+
+        eventList.add(new Event(eventName.trim(), eventDate.trim(), eventLocation.trim(), attendeeCount));
     }
 
     // ================================================================== //
@@ -148,6 +156,12 @@ public class DataManager {
     public Club findClubByName(String name) {
         if (name == null || name.isBlank()) return null;
         for (Club c : clubList) if (c.getClubName().equalsIgnoreCase(name.trim())) return c;
+        return null;
+    }
+    
+    public Event findEventByName(String name) {
+        if (name == null || name.isBlank()) return null;
+        for (Event e: eventList) if (e.getEventName().equalsIgnoreCase(name.trim())) return e;
         return null;
     }
 }
