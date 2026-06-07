@@ -35,12 +35,9 @@ To maximize code reusability and maintain strong separation of concerns, the pro
 
 ## 📂 Data Storage File Structure
 
-Application data persists in flat text formats situated directly within the project's working directory root:
+Application data persists in flat text formats situated directly within a dedicated directory folder at the project's working directory root:
 
-* `users.txt`: Encrypted credential pairings for authorized application access.
-
-* `students.txt`: Sequential text rows capturing student IDs, names, emails, and active course associations.
-
-* `courses.txt`: Academic records maintaining course identities, credits, and tracking assigned instructors.
-
-* `clubs.txt`: Extracurricular registry mapping organizations, presidents, and linked event details.
+* `data/courses.txt`: Academic records maintaining course names, codes, credits, and tracking assigned instructors.
+* `data/instructors.txt`: Sequential text rows capturing instructor employee IDs, full names, and official university emails.
+* `data/students.txt`: Registry rows capturing student IDs, names, emails, and active enrolled course associations.
+* `data/clubs.txt`: Extracurricular registry mapping organizations, presidents, and linked upcoming event details.
