@@ -1,5 +1,3 @@
-package universitymanagementsystem;
-
 import javafx.beans.property.*;
 import javafx.collections.*;
 import javafx.geometry.Insets;
@@ -76,7 +74,7 @@ public class ClubWorkspace {
 
         table = new TableView<>(tableModel);
         table.getColumns().addAll(nameCol, presCol, evtCol, dateCol, locCol, attCol);
-        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
         table.setPlaceholder(new Label("No clubs registered yet."));
         table.setPrefHeight(420); table.setStyle("-fx-font-size:12px;");
         table.getSelectionModel().selectedItemProperty().addListener(
@@ -169,8 +167,7 @@ public class ClubWorkspace {
     }
 
     private void populateForm(ClubRow r) {
-        clubNameField.setText(r.getClubName());
-        presidentField.setText(r.getPresidentName());        
+        clubNameField.setText(r.getClubName()); presidentField.setText(r.getPresidentName());
         eventNameField.setText(r.getEventName()); eventDateField.setText(r.getEventDate());
         eventLocField.setText(r.getEventLocation()); attendeeField.setText(String.valueOf(r.getAttendeeCount()));
         statusLabel.setVisible(false);
