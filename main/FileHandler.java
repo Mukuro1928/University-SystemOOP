@@ -1,5 +1,42 @@
 import java.io.*;
 
+/**
+ * Developed by: IQMAL HAKIMI BIN SUHAIMI 2511737
+ * FileHandler.java — Data Persistence Module
+ * ==========================================
+ * Handles the storage and retrieval of application data using
+ * text-based files.
+ *
+ * Responsibilities:
+ *  • Save system data to external text files.
+ *  • Load previously saved data when the application starts.
+ *  • Maintain persistent records for Students, Instructors,
+ *    Courses, and Clubs.
+ *  • Convert in-memory objects into a file-friendly format
+ *    and reconstruct them when loading.
+ *
+ * Architecture:
+ *  • Uses Java File I/O classes such as File, FileReader,
+ *    FileWriter, BufferedReader, and PrintWriter.
+ *  • Works closely with the DataManager singleton to access
+ *    and restore application data.
+ *  • Stores each entity type in a separate text file for
+ *    improved organization and maintainability.
+ *
+ * Features:
+ *  • Save all system records with a single method call.
+ *  • Load all saved records during application startup.
+ *  • Preserve relationships between students and courses,
+ *    as well as clubs and their events.
+ *  • Automatically create the required data directory if it
+ *    does not already exist.
+ *
+ * Design:
+ *  • Functions as the persistence layer of the University
+ *    Management System, ensuring data remains available
+ *    between application sessions.
+ */
+
 public class FileHandler {
     private static final String DATA_DIR        = "data/";
     private static final String COURSE_FILE     = DATA_DIR + "courses.txt";
