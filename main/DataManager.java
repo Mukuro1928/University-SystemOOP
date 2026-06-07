@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * Developed by: Athif
+ * Developed by: MUHAMMAD A'THIF UZAIR BIN SHAEDIN - 2514847
  * DataManager.java — Central Data Management Module
  * =================================================
  * Serves as the central repository and controller for all system data
