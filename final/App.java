@@ -1,3 +1,5 @@
+package universitymanagementsystem;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -41,8 +43,9 @@ public class App extends Application {
             seedDemoData();
             FileHandler.saveAllData();
         }
-
+        
         showLoginView();
+        //navigateToDashboard("admin");
         primaryStage.show();
         }
 

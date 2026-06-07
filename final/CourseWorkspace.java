@@ -1,3 +1,5 @@
+package universitymanagementsystem;
+
 import javafx.beans.property.*;
 import javafx.collections.*;
 import javafx.geometry.Insets;
@@ -74,7 +76,7 @@ public class CourseWorkspace {
 
         table = new TableView<>(tableModel);
         table.getColumns().addAll(codeCol, nameCol, creditCol, instrCol);
-        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         table.setPlaceholder(new Label("No courses registered yet."));
         table.setPrefHeight(420); table.setStyle("-fx-font-size:12px;");
         table.getSelectionModel().selectedItemProperty().addListener(
@@ -86,9 +88,9 @@ public class CourseWorkspace {
         ts.setStyle("-fx-background-color:#ffffff;-fx-background-radius:10;-fx-padding:20;" +
                     "-fx-effect:dropshadow(gaussian,rgba(0,0,0,0.07),10,0,0,3);");
         VBox.setVgrow(table, Priority.ALWAYS); HBox.setHgrow(ts, Priority.ALWAYS);
-
-        nameField       = sf("Course Name");
+        
         codeField       = sf("Course Code (e.g. BICS2303)");
+        nameField       = sf("Course Name");
         creditField     = sf("Credit Hours (number)");
         instructorField = sf("Instructor Name");
         statusLabel     = new Label(); statusLabel.setWrapText(true);
@@ -108,8 +110,8 @@ public class CourseWorkspace {
 
         VBox form = new VBox(12,
             bold("Course Details"), new Separator(),
-            fg("Course Name",    nameField),
             fg("Course Code",    codeField),
+            fg("Course Name",    nameField),
             fg("Credit Hours",   creditField),
             fg("Instructor",     instructorField),
             statusLabel, addBtn, deleteBtn, clearBtn, note
@@ -124,8 +126,8 @@ public class CourseWorkspace {
 
     private void handleAdd() {
         try {
-            String name   = req(nameField,       "Course Name");
             String code   = req(codeField,        "Course Code");
+            String name   = req(nameField,       "Course Name");
             int    credit = parseCredit();
             String instr  = req(instructorField,  "Instructor Name");
             DataManager.getInstance().addCourse(name, code, credit, instr);
@@ -163,13 +165,21 @@ public class CourseWorkspace {
     }
 
     private void populateForm(CourseRow r) {
-        nameField.setText(r.getCourseName()); codeField.setText(r.getCourseCode());
+        codeField.setText(r.getCourseCode());
+        codeField.setEditable(false);
+        codeField.setStyle(codeField.getStyle() + "-fx-opacity:0.7;-fx-cursor:not-allowed;");
+        nameField.setText(r.getCourseName()); 
         creditField.setText(String.valueOf(r.getCredit())); instructorField.setText(r.getInstructor());
         statusLabel.setVisible(false);
     }
 
     private void clearForm() {
-        nameField.clear(); codeField.clear(); creditField.clear(); instructorField.clear();
+        codeField.clear();
+        codeField.setEditable(true);
+        codeField.setStyle(codeField.getStyle() + "-fx-opacity:1;-fx-cursor:allowed;");
+        nameField.clear(); 
+        creditField.clear(); 
+        instructorField.clear();
         statusLabel.setVisible(false); table.getSelectionModel().clearSelection();
     }
 
@@ -215,23 +225,22 @@ public class CourseWorkspace {
 
     // Row model
     public static class CourseRow {
-        private final SimpleStringProperty  courseName, courseCode, instructor;
+        private final SimpleStringProperty  courseCode, courseName, instructor;
         private final SimpleIntegerProperty credit;
 
         public CourseRow(Course c) {
-            this.courseName = new SimpleStringProperty(c.getCourseName());
             this.courseCode = new SimpleStringProperty(c.getCourseCode());
+            this.courseName = new SimpleStringProperty(c.getCourseName());            
             this.credit     = new SimpleIntegerProperty(c.getCredit());
             this.instructor = new SimpleStringProperty(c.getInstructor());
         }
-
-        public String getCourseName() { return courseName.get(); }
         public String getCourseCode() { return courseCode.get(); }
+        public String getCourseName() { return courseName.get(); }
         public int    getCredit()     { return credit.get(); }
         public String getInstructor() { return instructor.get(); }
-
-        public StringProperty  courseNameProperty() { return courseName; }
+        
         public StringProperty  courseCodeProperty() { return courseCode; }
+        public StringProperty  courseNameProperty() { return courseName; }
         public IntegerProperty creditProperty()     { return credit; }
         public StringProperty  instructorProperty() { return instructor; }
     }

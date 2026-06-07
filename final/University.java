@@ -1,3 +1,5 @@
+package universitymanagementsystem;
+
 public class University {
     private String uniName;
     private String location;

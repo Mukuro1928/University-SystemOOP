@@ -1,3 +1,5 @@
+package universitymanagementsystem;
+
 public class Course 
 {
     private String courseName;

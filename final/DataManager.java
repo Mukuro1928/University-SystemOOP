@@ -1,3 +1,5 @@
+package universitymanagementsystem;
+
 import java.util.ArrayList;
 
 public class DataManager {

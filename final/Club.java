@@ -1,3 +1,5 @@
+package universitymanagementsystem;
+
 public class Club
 {
     private String clubName;

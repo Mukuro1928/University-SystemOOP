@@ -1,3 +1,5 @@
+package universitymanagementsystem;
+
 import javafx.beans.property.*;
 import javafx.collections.*;
 import javafx.geometry.Insets;
@@ -81,7 +83,7 @@ public class InstructorWorkspace {
 
         table = new TableView<>(tableModel);
         table.getColumns().addAll(empCol, nameCol, emailCol);
-        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         table.setPlaceholder(new Label("No instructors registered yet."));
         table.setPrefHeight(420); table.setStyle("-fx-font-size:12px;");
         table.getSelectionModel().selectedItemProperty().addListener(
@@ -177,11 +179,15 @@ public class InstructorWorkspace {
 
     private void populateForm(InstructorRow r) {
         empIDField.setText(r.getEmployeeID()); nameField.setText(r.getName());
+        empIDField.setEditable(false);
+        empIDField.setStyle(empIDField.getStyle() + "-fx-opacity:0.7;-fx-cursor:not-allowed;");
         emailField.setText(r.getEmail()); statusLabel.setVisible(false);
     }
 
     private void clearForm() {
         empIDField.clear(); nameField.clear(); emailField.clear();
+        empIDField.setEditable(true);
+        empIDField.setStyle(empIDField.getStyle() + "-fx-opacity:1;-fx-cursor:allowed;");
         statusLabel.setVisible(false); table.getSelectionModel().clearSelection();
     }
 

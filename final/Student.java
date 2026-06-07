@@ -1,3 +1,5 @@
+package universitymanagementsystem;
+
 public class Student extends Person {
     private int studentID;
     private Course enrolledCourse;
