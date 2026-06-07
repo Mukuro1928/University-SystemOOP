@@ -1,4 +1,5 @@
 /**
+ * Developed by: AHMAD MUKHLIS BIN ZAKARIAH 2514371
  * Instructor.java — Instructor Entity
  * ===================================
  * Represents an instructor in the system and extends the Person class.
