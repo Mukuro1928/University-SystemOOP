@@ -27,8 +27,8 @@ To maximize code reusability and maintain strong separation of concerns, the pro
 ## 🛠️ Requirements & Installation
 
 ### Prerequisites
-* **Java Development Kit (JDK):** Version 17 or higher.
-* **JavaFX SDK:** Version 17 or higher compatible with your platform runtime environment.
+* **Java Development Kit (JDK):** Version 21 or higher.
+* **JavaFX SDK:** Version 21 or higher compatible with your platform runtime environment.
 * An IDE (IntelliJ IDEA, Eclipse, or NetBeans) with JavaFX support configured.
 
 ---
