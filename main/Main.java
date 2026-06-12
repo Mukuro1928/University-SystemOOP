@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
 /**
- * Developed by:
- * 1. IQMAL HAKIMI BIN SUHAIMI - 2511737
+ * Developed by: IQMAL HAKIMI BIN SUHAIMI - 2511737
  * Main entry point for the initial CLI (Command Line Interface) version 
  * of the IIUM University Management System.
  * * Responsibilities:
