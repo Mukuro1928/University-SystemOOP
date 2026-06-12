@@ -32,7 +32,7 @@ public class App extends Application {
             FileHandler.saveAllData();
         }
 
-        navigateToDashboard("DebugAdmin");
+        showLoginView();
         primaryStage.show();
         }
 

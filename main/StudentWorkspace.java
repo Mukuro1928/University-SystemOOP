@@ -334,7 +334,7 @@ public class StudentWorkspace {
     private void clearForm() {
         idField.clear();
         idField.setEditable(true);
-        idField.setStyle(idField.getStyle() + "-fx-opacity:1;-fx-cursor:allowed;");
+        idField.setStyle(idField.getStyle() + "-fx-opacity:1;-fx-cursor:text;");
         nameField.clear();
         emailField.clear();
         courseCodeField.clear();

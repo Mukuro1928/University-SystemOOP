@@ -111,11 +111,13 @@ public class ClubWorkspace {
         statusLabel    = new Label(); statusLabel.setWrapText(true);
         statusLabel.setFont(Font.font("Verdana",11)); statusLabel.setVisible(false);
 
-        Button addBtn    = ab("➕  Add Club",    "#6a1a6a", "#9a2a9a");
-        Button deleteBtn = ab("🗑  Delete Club",  "#8a1a1a", "#c0392b");
-        Button clearBtn  = ab("↺  Clear Form",    "#4a5568", "#6b7a99");
+        Button addBtn    = ab("➕  Add Club",      "#6a1a6a", "#9a2a9a");
+        Button editBtn   = ab("✏  Update Club",    "#1a4a9a", "#2a5298");
+        Button deleteBtn = ab("🗑  Delete Club",    "#8a1a1a", "#c0392b");
+        Button clearBtn  = ab("↺  Clear Form",      "#4a5568", "#6b7a99");
 
         addBtn.setOnAction(e    -> handleAdd());
+        editBtn.setOnAction(e   -> handleEdit());
         deleteBtn.setOnAction(e -> handleDelete());
         clearBtn.setOnAction(e  -> clearForm());
 
@@ -132,7 +134,7 @@ public class ClubWorkspace {
             fg("Date",        eventDateField),
             fg("Location",    eventLocField),
             fg("Attendees",   attendeeField),
-            statusLabel, addBtn, deleteBtn, clearBtn, note
+            statusLabel, addBtn, editBtn, deleteBtn, clearBtn, note
         );
         form.setPrefWidth(290); form.setMinWidth(260);
         form.setStyle("-fx-background-color:#ffffff;-fx-background-radius:10;-fx-padding:24;" +
@@ -155,6 +157,28 @@ public class ClubWorkspace {
             FileHandler.saveAllData();
             showStatus("✔  Club added successfully.", true);
         } catch (IllegalArgumentException ex) { ea("Add Club Failed", ex.getMessage()); }
+    }
+
+    private void handleEdit() {
+        try {
+            String cName = req(clubNameField,  "Club Name");
+            String pName = req(presidentField, "President Name");
+            String eName = eventNameField.getText().trim();
+            String eDate = eventDateField.getText().trim();
+            String eLoc  = eventLocField.getText().trim();
+            int    att   = parseAttendees();
+            Alert c = new Alert(Alert.AlertType.CONFIRMATION,
+                "Update club '" + cName + "'? This will replace the existing record.");
+            c.showAndWait().ifPresent(r -> {
+                if (r == ButtonType.OK) {
+                    boolean ok = DataManager.getInstance().editClub(cName, pName, eName, eDate, eLoc, att);
+                    if (!ok) { ea("Update Club Failed", "Club not found: " + cName); return; }
+                    syncFromDataManager(); clearForm();
+                    FileHandler.saveAllData();
+                    showStatus("✔  Club updated successfully.", true);
+                }
+            });
+        } catch (IllegalArgumentException ex) { ea("Update Club Failed", ex.getMessage()); }
     }
 
     private void handleDelete() {
@@ -183,6 +207,8 @@ public class ClubWorkspace {
 
     private void populateForm(ClubRow r) {
         clubNameField.setText(r.getClubName());
+        clubNameField.setEditable(false);
+        clubNameField.setStyle(clubNameField.getStyle() + "-fx-opacity:0.7;-fx-cursor:not-allowed;");
         presidentField.setText(r.getPresidentName());        
         eventNameField.setText(r.getEventName()); eventDateField.setText(r.getEventDate());
         eventLocField.setText(r.getEventLocation()); attendeeField.setText(String.valueOf(r.getAttendeeCount()));
@@ -191,6 +217,8 @@ public class ClubWorkspace {
 
     private void clearForm() {
         clubNameField.clear(); presidentField.clear(); eventNameField.clear();
+        clubNameField.setEditable(true);
+        clubNameField.setStyle(clubNameField.getStyle() + "-fx-opacity:1;-fx-cursor:text;");
         eventDateField.clear(); eventLocField.clear(); attendeeField.clear();
         statusLabel.setVisible(false); table.getSelectionModel().clearSelection();
     }

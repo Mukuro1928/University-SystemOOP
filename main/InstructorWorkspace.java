@@ -178,7 +178,7 @@ public class InstructorWorkspace {
     private void clearForm() {
         empIDField.clear(); nameField.clear(); emailField.clear();
         empIDField.setEditable(true);
-        empIDField.setStyle(empIDField.getStyle() + "-fx-opacity:1;-fx-cursor:allowed;");
+        empIDField.setStyle(empIDField.getStyle() + "-fx-opacity:1;-fx-cursor:text;");
         statusLabel.setVisible(false); table.getSelectionModel().clearSelection();
     }
 

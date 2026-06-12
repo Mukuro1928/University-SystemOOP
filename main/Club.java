@@ -69,6 +69,11 @@ public class Club
         return event;
     }
 
+    public void setEvent(Event event)
+    { 
+        this.event = event; 
+    }
+
     public void showClubDetails() {
         System.out.println("Club: " + clubName);
         System.out.println("President: " + presidentName);

@@ -69,7 +69,6 @@ public class Course
         return this.credit;
     }
     
-    
     public void setInstructor(String instructor)
     {
         this.instructor = instructor;

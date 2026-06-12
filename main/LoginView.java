@@ -22,8 +22,7 @@ import javafx.scene.Node;
 public class LoginView {
     private static final String[][] VALID_CREDENTIALS = {
         { "admin",   "admin123"  },
-        { "staff",   "iium2025"  },
-        { "student", "welcome1"  }
+        { "staff",   "iium2025"  }
     };
 
     private final BorderPane root;

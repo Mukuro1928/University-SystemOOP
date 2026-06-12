@@ -110,6 +110,16 @@ public class DataManager {
         courseList.add(new Course(name.trim(), code.trim().toUpperCase(), credit, instructorName.trim()));
     }
 
+    public boolean editCourse(String code, String newName, int newCredit, String newInstructor) {
+        Course course = findCourseByCode(code);
+        if (course == null) return false;
+
+        if (newName != null && !newName.isBlank()) course.setCourseName(newName.trim());
+        if (newCredit > 0) course.setCredit(newCredit);
+        if (newInstructor != null && !newInstructor.isBlank()) course.setInstructor(newInstructor.trim());
+        return true;
+    }
+
     public boolean deleteCourse(String code) {
         Course target = findCourseByCode(code);
         if (target == null) return false;
@@ -131,6 +141,19 @@ public class DataManager {
             newClub.createEvent(eventName.trim(), eventDate.trim(), eventLoc.trim(), attendees);
         }
         clubList.add(newClub);
+    }
+
+    public boolean editClub(String clubName, String newPresident, String eventName, String eventDate, String eventLoc, int attendees) {
+        Club club = findClubByName(clubName);
+        if (club == null) return false;
+
+        if (newPresident != null && !newPresident.isBlank()) club.setPresidentName(newPresident.trim());
+        if (eventName != null && !eventName.isBlank()) {
+            club.createEvent(eventName.trim(), eventDate.trim(), eventLoc.trim(), attendees);
+        } else {
+            club.setEvent(null);
+        }
+        return true;
     }
 
     public boolean deleteClub(String clubName) {

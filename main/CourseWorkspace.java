@@ -107,10 +107,12 @@ public class CourseWorkspace {
         statusLabel.setFont(Font.font("Verdana",11)); statusLabel.setVisible(false);
 
         Button addBtn    = ab("➕  Add Course",    "#7a4a00", "#b06a10");
+        Button editBtn   = ab("✏  Update Course",  "#1a4a9a", "#2a5298");
         Button deleteBtn = ab("🗑  Delete Course",  "#8a1a1a", "#c0392b");
         Button clearBtn  = ab("↺  Clear Form",      "#4a5568", "#6b7a99");
 
         addBtn.setOnAction(e    -> handleAdd());
+        editBtn.setOnAction(e   -> handleEdit());
         deleteBtn.setOnAction(e -> handleDelete());
         clearBtn.setOnAction(e  -> clearForm());
 
@@ -124,7 +126,7 @@ public class CourseWorkspace {
             fg("Course Name",    nameField),
             fg("Credit Hours",   creditField),
             fg("Instructor",     instructorField),
-            statusLabel, addBtn, deleteBtn, clearBtn, note
+            statusLabel, addBtn, editBtn, deleteBtn, clearBtn, note
         );
         form.setPrefWidth(290); form.setMinWidth(260);
         form.setStyle("-fx-background-color:#ffffff;-fx-background-radius:10;-fx-padding:24;" +
@@ -145,6 +147,20 @@ public class CourseWorkspace {
             FileHandler.saveAllData();
             showStatus("✔  Course added successfully.", true);
         } catch (IllegalArgumentException ex) { ea("Add Course Failed", ex.getMessage()); }
+    }
+
+        private void handleEdit() {
+        try {
+            String code   = req(codeField,       "Course Code");
+            String name   = req(nameField,        "Course Name");
+            int    credit = parseCredit();
+            String instr  = req(instructorField,  "Instructor Name");
+            boolean ok = DataManager.getInstance().editCourse(code, name, credit, instr);
+            if (!ok) throw new IllegalArgumentException("No course found with code: " + code);
+            syncFromDataManager(); clearForm();
+            FileHandler.saveAllData();
+            showStatus("✔  Course updated successfully.", true);
+        } catch (IllegalArgumentException ex) { ea("Update Course Failed", ex.getMessage()); }
     }
 
     private void handleDelete() {
@@ -186,7 +202,7 @@ public class CourseWorkspace {
     private void clearForm() {
         codeField.clear();
         codeField.setEditable(true);
-        codeField.setStyle(codeField.getStyle() + "-fx-opacity:1;-fx-cursor:allowed;");
+        codeField.setStyle(codeField.getStyle() + "-fx-opacity:1;-fx-cursor:text;");
         nameField.clear(); 
         creditField.clear(); 
         instructorField.clear();
